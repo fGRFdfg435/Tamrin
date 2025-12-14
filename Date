@@ -1,0 +1,33 @@
+import random
+
+boys = [
+    "Ali", "Mohammad", "Reza", "Hossein", "Mehdi",
+    "Amir", "Sina", "Pouria", "Yaser", "Ehsan"
+]
+
+girls = [
+    "Zahra", "Fatemeh", "Maryam", "Narges", "Sara",
+    "Elham", "Reyhaneh", "Nazanin", "Hadis", "Samira"
+]
+
+random.shuffle(boys)
+random.shuffle(girls)
+
+pairs = []
+
+for i in range(10):
+    month = random.randint(1, 12)
+    if month <= 6:
+        day = random.randint(1, 31)
+    elif month <= 11:
+        day = random.randint(1, 30)
+    else:
+        day = random.randint(1, 29)
+
+    date = (1404, month, day)
+    pairs.append((date, boys[i], girls[i]))
+
+pairs.sort()
+
+for date, boy, girl in pairs:
+    print(f"{boy} + {girl} -> {date[0]}/{date[1]:02}/{date[2]:02}")
